@@ -1,0 +1,178 @@
+// fonts
+$base-font-family: "Roboto", "sans-serif";
+$primary-color: rgb(141, 128, 213);
+$secondary-color: rgb(65, 59, 97);
+
+//global
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  //uses normalize.css
+  //fluid typography based on viewport size
+  font-size: calc(12px + (26 - 12) * ((100vw - 300px) / (3200 - 150)));
+  font-family: $base-font-family;
+}
+
+h1,
+h2 {
+  color: $primary-color;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+p {
+  color: $secondary-color;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  opacity: 0.2;
+}
+
+//layout
+
+.container {
+  &.reversed {
+    flex-direction: row-reverse;
+  }
+  display: flex;
+  flex-direction: row;
+  padding: 20px 0;
+  margin-bottom: 100px;
+  > div:nth-child(1) {
+    flex-basis: 50%;
+    padding: 0 40px;
+    @media (max-width: 991px) {
+      padding: 10px;
+    }
+  }
+  .img-placeholder {
+    &.left {
+      margin-left: auto;
+    }
+    &.right {
+      margin-right: auto;
+    }
+  }
+  .img-placeholder img {
+    width: 100%;
+    min-width: 260px;
+  }
+  @media (max-width: 991px) {
+    margin-bottom: 50px;
+  }
+}
+
+.container-2 {
+  display: flex;
+  margin: 20px 0 40px 0;
+  > div {
+    padding-right: 40px;
+  }
+  @media (max-width: 991px) {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 991px) {
+  .container,
+  .container.reversed {
+    flex-direction: column-reverse;
+    padding: 20px;
+  }
+}
+
+.spacer-top {
+  margin-top: 50px;
+}
+.spacer-bottom {
+  margin-top: 50px;
+}
+.spacer-right {
+  margin-right: 50px;
+}
+.spacer-none {
+  margin: 0;
+}
+
+// checkbox bullet list
+ul {
+  margin: 0;
+  padding: 0;
+  li {
+    display: block;
+    .fa-check-circle:before {
+      color: $primary-color;
+    }
+    .far p {
+      font-family: $base-font-family;
+      display: inline-block;
+      margin: 15px 5px;
+    }
+  }
+}
+
+// button
+.button-cta {
+  p {
+    display: inline-block;
+  }
+  > span:nth-child(2) {
+    @media (max-width: 520px) {
+      display: block;
+    }
+  }
+}
+
+button {
+  background-color: $primary-color;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  @media (max-width: 520px) {
+    padding: 7.5px 16px;
+  }
+}
+
+.fa-chevron-right:before,
+.fa-arrow-right:before {
+  margin: 0 5px;
+  font-size: 10px;
+  vertical-align: middle;
+}
+
+// Google map
+
+#map {
+  height: 425px;
+  border: 1px solid $primary-color;
+}
+#MapInfoContent {
+  color: $primary-color;
+  width: fit-content;
+  font-family: "Roboto";
+  font-size: 1.2em;
+}

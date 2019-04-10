@@ -1,0 +1,25 @@
+{
+  "name": "peninsula-test",
+  "version": "1.0.0",
+  "description": "Interview test",
+  "main": "",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "peninsula"
+  },
+  "keywords": [
+    "peninsula"
+  ],
+  "author": "steven collins",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-sass": ">=3.x",
+    "gulp-sourcemaps": "^2.6.4"
+  }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <!--temp breadcrumb-->
+    <div class="container spacer-none">
+        <div>
+            <span><a href="index.html">Home</a><i class="fas fa-chevron-right"></i></span>
+            <span>Map</span>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <div>
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <!--Google Maps script-->
+
+    <!--API key here-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz3_XRaNmrCRvjlBMBRGvjsOKL3vq4E0I&callback=initMap"
+        type="text/javascript"></script>
+
+    <!--Coordinates, Markers and InfoWindow-->
+    <script type="text/javascript">
+
+        // set location coordinates in array
+        var locations = [
+            ['Location 1', 53.489656, -2.241142],
+            ['Location 2', 53.463238, -2.291329],
+        ];
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 11,
+            center: new google.maps.LatLng(53.489656, -2.241142),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {
+
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map
+            });
+
+            // mouse over marker event
+            google.maps.event.addListener(marker, 'mouseover', (function (marker, i) {
+                return function () {
+
+                    // build the html for the tooltip
+                    var infoContent = '<div id="MapInfoContent">' + '<strong>' + locations[i][0] + '</strong>' + '<br>' + 'Latitude: ' + locations[i][1].toString() + '<br>' + 'Longitude: ' + locations[i][2].toString() + '</div>'
+
+                    infowindow.setContent(infoContent)
+                    infowindow.open(map, marker);
+                }
+
+            })(marker, i));
+
+            // include click event for touch devices as they dont have mouseover
+            if ("ontouchstart" in document.documentElement) {
+
+                console.log("detected touch device")
+
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+
+                        // build the html for the tooltip
+                        var infoContent = '<div id="MapInfoContent">' + '<strong>' + locations[i][0] + '</strong>' + '<br>' + 'Latitude: ' + locations[i][1].toString() + '<br>' + 'Longitude: ' + locations[i][2].toString() + '</div>'
+
+                        infowindow.setContent(infoContent)
+                        infowindow.open(map, marker);
+                    }
+
+                })(marker, i));
+            }
+
+        };
+
+    </script>
+
+
+
+</body>
+
+</html>
