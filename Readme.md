@@ -20,3 +20,4 @@ run 'gulp' to compile and launch live reload
 ## Notes
 use gulp v3.9.1 locally
 npm install gulp@3.9.1
+- Google Maps API key configured to run on http://localhost:3000
