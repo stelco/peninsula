@@ -5,7 +5,7 @@
 - Finally, when the markers are hovered, they should show an info window with the coordinates of that location
 
 ## Install
-run 'npm install' in /FrontEndSample folder to install
+- run 'npm install' in /FrontEndSample folder to install
 - Static Server + watching scss/html files + live reload + autoprefixer
 
 ## Dev
@@ -15,9 +15,8 @@ run 'npm install' in /FrontEndSample folder to install
 - Wow.js for lazy loading and animations
 
 ## Compile and Launch
-run 'gulp' to compile and launch live reload
+- run 'gulp' to compile and launch live reload
 
 ## Notes
-use gulp v3.9.1 locally
-npm install gulp@3.9.1
+- use gulp v3.9.1 locally npm install gulp@3.9.1
 - Google Maps API key configured to run on http://localhost:3000
