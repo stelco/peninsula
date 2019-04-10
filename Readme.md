@@ -6,13 +6,13 @@
 
 ## Install
 run 'npm install' in /FrontEndSample folder to install
-Static Server + watching scss/html files + live reload + autoprefixer
+- Static Server + watching scss/html files + live reload + autoprefixer
 
 ## Dev
-Sourcemaps can be configured in browser dev tools for Sass file mappings
-Cloudinary used to optimize images
-Font Awesome CDN for icons
-Wow.js for lazy loading and animations
+- Sourcemaps can be configured in browser dev tools for Sass file mappings
+- Cloudinary used to optimize images
+- Font Awesome CDN for icons
+- Wow.js for lazy loading and animations
 
 ## Compile and Launch
 run 'gulp' to compile and launch live reload
